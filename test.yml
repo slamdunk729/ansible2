@@ -4,3 +4,6 @@
 #-----------------------------
 - name: Firewall NTP Open
   firewalld: service=ntp permanent=true state=enabled
+
+- name: Firewall NTP Open
+  firewalld: service=ntp permanent=true state=enabled
