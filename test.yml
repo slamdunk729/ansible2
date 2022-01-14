@@ -3,4 +3,4 @@
 # Security: Firewall Settings
 #-----------------------------
 - name: Firewall NTP Open
-  firewalld: service=ntp permanent=true state=enabled
+  firewalld: service=ntp permanent=true state=enabledd
