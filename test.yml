@@ -4,10 +4,4 @@
 #-----------------------------
 - name: Firewall NTP Open
   firewalld: service=ntp permanent=true state=enabled
-
-- name: Firewall NTP Open
-  firewalld: service=ntp permanent=falsee state=enabledaa
-
-- name: Firewall NTP Open22
-  firewalld: service=ntp permanent=falsee state=enabledaa
 　
