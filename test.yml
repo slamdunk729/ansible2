@@ -9,5 +9,5 @@
   firewalld: service=ntp permanent=falsee state=enabledaa
 
 - name: Firewall NTP Open223
-  firewalld: service=ntp permanent=falsee state=enabledaa
+  firewalld: service=ntp permanent=falsee state=enableda
 　
