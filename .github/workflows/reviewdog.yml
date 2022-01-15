@@ -1,17 +1,33 @@
 name: reviewdog
 on: [pull_request]
 jobs:
-  reviewdog:
-    name: reviewdog
+  textlint:
+    name: runner / textlint
     runs-on: ubuntu-latest
     steps:
-      # ...
-      - uses: reviewdog/action-setup@v1
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          reviewdog_version: latest # Optional. [latest,nightly,v.X.Y.Z]
-      - name: Run reviewdog
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          reviewdog -reporter=github-pr-review -runners=golint,govet
-
+          submodules: true
+      - name: Setup node/npm
+        uses: actions/setup-node@v1
+        with:
+          node-version: '15'
+      - name: textlint-github-pr-check
+        uses: tsuyoshicho/action-textlint@v3
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-check
+          textlint_flags: "doc/**"
+      - name: textlint-github-check
+        uses: tsuyoshicho/action-textlint@v3
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-check
+          textlint_flags: "doc/**"
+      - name: textlint-github-pr-review
+        uses: tsuyoshicho/action-textlint@v3
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          textlint_flags: "doc/**"
