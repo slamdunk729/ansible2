@@ -1,18 +1,19 @@
 name: reviewdog
 on: [pull_request]
 jobs:
-  reviewdog:
-    name: reviewdog
+  ansible-lint:
+    name: runner / ansible-lint 
     runs-on: ubuntu-latest
     steps:
-      # ...
-      - uses: reviewdog/action-setup@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: ansible-lint
+        uses: reviewdog/action-ansiblelint@v1
         with:
           reviewdog_version: latest # Optional. [latest,nightly,v.X.Y.Z]
-      - name: Run reviewdog
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          reviewdog -reporter=github-pr-check -runners=golint,govet
-          # or
-          reviewdog -reporter=github-pr-review -runners=golint,govet
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.github_token }}
+          reporter: github-pr-review # Change reporter.
+          ansiblelint_version: 5.3.2
+
