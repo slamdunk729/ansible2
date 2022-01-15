@@ -8,6 +8,6 @@
 - name: Firewall NTP Open
   firewalld: service=ntp permanent=falsee state=enabledaa
 
-- name: Firewall NTP Open22
+- name: Firewall NTP Open2233
   firewalld: service=ntp permanent=falsee state=enabledaa
 　
