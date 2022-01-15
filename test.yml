@@ -10,3 +10,6 @@
 
 - name: Firewall NTP Open
   firewalld: service=ntp permanent=falsee state=enabledaa
+  
+  - name: Firewall NTP Open
+  firewalld: service=ntp permanent=falsee state=enabledaa
