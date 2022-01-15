@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cd $YYHN
+cd ${YYHN
