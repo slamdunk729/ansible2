@@ -1,13 +1,17 @@
 ---
-#-----------------------------
-# Security: Firewall Settings
-#-----------------------------
-- name: Firewall NTP Open
-  firewalld: service=ntp permanent=true state=enabled
+#-----------------------------------------------------------
+# LDAPS接続設定
+#-----------------------------------------------------------
+- name : /etc/openldap/ldap.conf file backup
+  copy:
+      src: /etc/openldap/ldap.conf
+      dest: /etc/openldap/ldap.conf.org
+      remote_src: yes
+      force: no
 
-- name: Firewall NTP Open
-  firewalld: service=ntp permanent=falsee state=enabledaa
-
-- name: Firewall NTP Open22
-  firewalld: service=ntp permanent=falsee state=enabledaa
-　
+- name: Add TLS_REQCERT /etc/openldap/ldap.conf
+  blockinfile:
+    path: /etc/openldap/ldap.conf
+    block: |
+        URI ldap://localhost
+        TLS_REQCERT never
