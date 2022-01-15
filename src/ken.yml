@@ -7,4 +7,4 @@
       src: /etc/openldap/ldap.conf
       dest: /etc/openldap/ldap.conf.org
       remote_src: yes
-      force: no
+         force: no
