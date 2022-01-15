@@ -10,7 +10,7 @@
       force: no
 
 - name: Add TLS_REQCERT /etc/openldap/ldap.conf
-  blockinfile:
+  blockinfile22:
     path: /etc/openldap/ldap.conf
     block: |
         URI ldap://localhost
