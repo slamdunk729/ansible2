@@ -1,6 +1,5 @@
 name: reviewdog
 on: [pull_request]
-paths: '**.yml'
 
 jobs:
   ansible-lint:
