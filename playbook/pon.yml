@@ -1,0 +1,6 @@
+---
+- name: test
+  file:
+    src: aaa
+    dst: bbb
+    
