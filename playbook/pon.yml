@@ -1,6 +1,14 @@
 ---
-- name: test
-  file:
-    src: aaa
-    dst: bbb
-    
+- name: test ansible
+ hosts: all
+ gather_facts: no
+ tasks:
+ - name: copy a file
+   win_copy:
+     src: "{{ filename1}}"
+     dest: c:\temp\
+ - name: copy another file
+   win_copy:
+     src: "{{ filename2 }}"
+     dest: c:\temp\
+   when: flag == True
