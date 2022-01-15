@@ -13,9 +13,8 @@ jobs:
       - name: ansible-lint
         uses: reviewdog/action-ansiblelint@v1
         with:
-          github_token: ${{ secrets.reviewdog_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review # Change reporter.
           ansiblelint_version: 5.3.2
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.reviewdog_token }}
+
 
