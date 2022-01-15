@@ -10,8 +10,9 @@ jobs:
         with:
           python-version: 3.6
       - name: ansible-lint
-        uses: reviewdog/action-ansiblelint@v1.4.0
+        uses: reviewdog/action-ansiblelint@v1
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Change reporter.
+          ansiblelint_flags: '-x core playbook/*'
           ansiblelint_version: 5.3.2
