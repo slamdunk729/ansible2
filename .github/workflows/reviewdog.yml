@@ -15,3 +15,5 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Change reporter.
           ansiblelint_version: 5.3.2
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: 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
