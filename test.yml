@@ -12,6 +12,6 @@
 - name: Add TLS_REQCERT /etc/openldap/ldap.conf
   blockinfile:
     path: /etc/openldap/ldap.conf
-    block: |
+    blocks: |
         URI ldap://localhost
         TLS_REQCERT never
