@@ -1,6 +1,10 @@
 ---
-- name: test
-  file:
-    src: aaa
-    dst: bbb
-    
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: make dir
+      file:
+        path: /root/tutorial/test
+        state: directory
+        mode: 0755
