@@ -1,18 +1,14 @@
 name: reviewdog
 on: [pull_request]
 jobs:
-  shellcheck:
-    name: runner / shellcheck
+  yamllint:
+    name: runner / yamllint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: shellcheck
-        uses: reviewdog/action-shellcheck@v1
+      - name: yamllint
+        uses: reviewdog/action-yamllint@v1
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Change reporter.
-          path: "." # Optional.
-          pattern: "*.sh" # Optional.
-          exclude: "./.git/*" # Optional.
-          check_all_files_with_shebangs: "false" # Optional.
-          filter_mode: diff_context
+          yamllint_flags: 'src/'
