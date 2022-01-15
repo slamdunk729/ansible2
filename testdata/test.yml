@@ -7,3 +7,5 @@
       command: ls -la
     - name: Test Shell
       shell: ls
+    - name: Test Shell
+      shell: ls
