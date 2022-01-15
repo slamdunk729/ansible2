@@ -1,6 +1,7 @@
 ---
-- name: test
-  file:
-    src: aaa
-    dst: bbb
+  tasks:
+    - file:
+        path: /root/tutorial/test
+        state: directory
+        mode: 0755
     
