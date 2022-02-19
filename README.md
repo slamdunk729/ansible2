@@ -38,6 +38,11 @@ linkStyle 1,5 stroke:orange
 linkStyle 2,7 stroke:green
 linkStyle 3,6 stroke:red
 linkStyle 4 stroke:magenta
+
+%% Clickable Links %%
+click P "https://www.google.co.jp"
+
+
 ```
 
 
