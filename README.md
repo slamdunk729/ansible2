@@ -1,11 +1,13 @@
 ```mermaid
-sequenceDiagram
-Alice->>John: Hello John, how are you?
-loop Healthcheck
-    John->>John: Fight against hypochondria
-end
-Note right of John: Rational thoughts!
-John-->>Alice: Great!
-John->>Bob: How about you?
-Bob-->>John: Jolly good!
+graph LR
+  SPA["Single Page Application"]
+  BFF["Backends For Frontends"]
+  BE["Backends"]
+  subgraph browser
+    SPA
+  end
+  subgraph cloud["Cloud environment"]
+    BFF --> BE
+  end
+  SPA -- port 443 --> BFF
 ```
