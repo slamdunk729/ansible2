@@ -1,4 +1,6 @@
 ```mermaid
+%%{init:{'theme':'base'}}%%
+
 graph LR
   SPA["Single Page Application"]
   BFF["Backends For Frontends"]
