@@ -75,6 +75,23 @@ graph LR
   DNS1 -- DNS Zone Transfer:53/tcp --> DNS3
 ```
 
+```mermaid
+graph TB
+  WWW["Apache HTTP Server"]
+  DNS["BIND9.8(DNS Maser)"]
+  PHP["PHP5"]
+  DB[(MariaDB)]
+  FTP["vsftpd"]
+  
+  subgraph WWWS["メール・WWWサーバ"]
+    WWW
+    DNS
+    PHP
+    DB
+    FTP
+  end
+
+```
 
 
 ```mermaid
