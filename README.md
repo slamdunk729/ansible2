@@ -3,7 +3,7 @@ flowchart LR
 
 %% Colors %%
 linkStyle default stroke-width:2px
-classDef blue fill:#2374f7,stroke:#000,stroke-width:2px,color:#fff
+classDef blue fill:#c9c9c4,stroke:#000,stroke-width:2px,color:#fff
 classDef orange fill:#fc822b,stroke:#000,stroke-width:2px,color:#fff
 classDef green fill:#16b552,stroke:#000,stroke-width:2px,color:#fff
 classDef red fill:#ed2633,stroke:#000,stroke-width:2px,color:#fff
@@ -45,18 +45,50 @@ click P "https://www.google.co.jp"
 
 ```
 
+```mermaid
+graph LR
+　PC["DNS Clients"]
+  DNS1["BIND9.8(DNS Master)"]
+  DNS2["BIND9.8(DNS Slave)"]
+  DNS3["BIND9.8(DNS tertiary)"]
+  
+  subgraph 端末
+    PC
+  end
+  
+  subgraph cloud["Cloud environment"]
+    DNS1
+  end
+
+  subgraph cloud2["Cloud2 environment"]
+    DNS2
+  end
+  
+  subgraph cloud3["Cloud2 environment"]
+    DNS3
+  end
+  
+  PC -- DNS Query:53/udp,tcp --> DNS1
+  PC -- DNS Query:53/udp,tcp --> DNS2
+  PC -- DNS Query:53/udp,tcp --> DNS3
+  DNS1 -- DNS Zone Transfer:53/tcp --> DNS2
+  DNS1 -- DNS Zone Transfer:53/tcp --> DNS3
+```
 
 
 
 ```mermaid
-%%{init:{'theme':'base'}}%%
-  
 graph LR
-  SPA["Single Page Application"]
-  BFF["Backends For Frontends"]
+%% Colors %%
+linkStyle default stroke-width:2px
+classDef pearlgray fill:#c9c9c4,stroke:#000,stroke-width:0.5px,color:#626063
+classDef frostyblue fill:#bbdbf3,stroke:#000,stroke-width:0.5px,color:#626063
+
+　SPA["Single Page Application"]:::frostyblue
+  BFF["Backends For Frontends"]:::frostyblue
   BE["Backends"]
   subgraph browser
-    SPA
+    SPA:::frostyblue
   end
   subgraph cloud["Cloud environment"]
     BFF --> BE
@@ -64,11 +96,19 @@ graph LR
   SPA -- port 443 --> BFF
   
 
-  classDef class1 fill:#7BCCAC,fill-opacity:0.5
+  classDef class1 fill:#c9c9c4,fill-opacity:0.5
   classDef class2 fill:#ffa23e
 
   qemu(QEMU):::class1 --> zircon[ZIRCON]:::class2
   zircon --> fuchsia[FUCHSIA]:::class1
+```
+
+```mermaid
+flowchart LR
+    subgraph Data Binding
+    id1(View) -- Owns --> id2(ViewModel) -. Update .-> id1
+    end
+    id2 -- Owns -->  id3(Model) -. Update .-> id2
 ```
 
 ```mermaid
