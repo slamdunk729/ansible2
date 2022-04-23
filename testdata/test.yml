@@ -3,7 +3,6 @@
   hosts: all
 
   tasks:
-    - name: Test Command
-      command: ls -la
+    - command: ls -la
     - name: Test Shell
       shell: ls
