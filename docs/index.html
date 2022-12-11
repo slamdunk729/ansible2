@@ -1,1 +1,35 @@
-Helo world
+# VMware ホストで実行してる RHEL ゲストマシンで LVM ディスクを拡張する
+
+ SOLUTION 確認済 - 更新日時 2015年2月17日午 前9時33分に - 
+
+[日本語 ](https://access.redhat.com/ja/solutions/433683)
+
+[Request a Translation Update](https://access.redhat.com/ja/%23)
+
+## 環境
+
+- Red Hat Enterprise Linux Guest
+- 仮想ホスト
+
+## 問題
+
+- 仮想ホストで実行している Red Hat Enterprise Linux ゲストで LVM ディスクを拡張する方法は?
+- 仮想環境で lvm を拡張する方法は?
+- 仮想ディスクを拡張して lvm を大きくすることはできますか?
+
+## 解決策
+
+**1.** 仮想ホストベンダーからの指示に従って、仮想マシンの基本ゲストディスクを修正します。
+
+**2.** システムを再起動するか、[SCSI でデバイスの再スキャンを開始](https://access.redhat.com/site/solutions/3941)します。
+
+**3.** ゲストディスクを修正したあとに基本ディスクが変更したかどうかを確認します。たとえば、`/dev/sda` のサイズを調べます。
+
+[Raw](https://access.redhat.com/ja/solutions/433683#)
+
+```
+# fdisk -l /dev/sda
+
+Disk /dev/sda:160.0 GB, 160000000000 bytes
+:
+```
