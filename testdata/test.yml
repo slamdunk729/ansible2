@@ -6,4 +6,6 @@
     - name: Test Command
       command: ls -la
     - name: Test Shell
-      shell: ls
+      shell: ls　
+     - name: AAA
+       shell: ls
